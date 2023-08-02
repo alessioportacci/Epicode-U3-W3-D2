@@ -1,0 +1,25 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <input
+    type="text"
+    required="true"
+    name="nome"
+    placeholder="nome"
+    [(ngModel)]="user.name"
+  />
+  <br />
+  <input
+    type="text"
+    required="true"
+    name="cognome"
+    placeholder="cognome"
+    [(ngModel)]="user.surname"
+  /><br />
+  <input
+    type="email"
+    required="true"
+    name="email"
+    placeholder="email"
+    [(ngModel)]="user.email"
+  /><br />
+  <button type="submit">invia</button>
+</form>

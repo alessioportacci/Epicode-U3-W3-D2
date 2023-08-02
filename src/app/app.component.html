@@ -1,1 +1,58 @@
-<app-form></app-form>
+<form
+  [formGroup]="formApp"
+  (submit)="onSubmit()"
+  style="display: flex; flex-direction: column; padding: 5x"
+>
+  <label for="nome">Nome</label>
+  <input type="text" name="name" formControlName="nome" />
+  <p *ngIf="!formApp.get('nome')?.valid && formApp.get('nome')?.touched">
+    Inserire un nome di almeno tre lettere
+  </p>
+
+  <label for="cognome">Cognome</label>
+  <input type="text" name="cognome" formControlName="cognome" />
+  <p *ngIf="!formApp.get('cognome')?.valid && formApp.get('cognome')?.touched">
+    Inserire un cognome di almeno tre lettere
+  </p>
+
+  <label for="password">Password</label>
+  <input type="password" name="password" formControlName="password" />
+  <p
+    *ngIf="!formApp.get('password')?.valid && formApp.get('password')?.touched"
+  >
+    Inserire una passowrd di almeno cinque lettere
+  </p>
+
+  <label for="cPassword">Conferma password</label>
+  <input type="password" name="cPassword" formControlName="cPassword" />
+  <p
+    *ngIf="
+      !formApp.get('cPassword')?.valid && formApp.get('cPassword')?.touched
+    "
+  >
+    Inserire una passowrd di almeno cinque lettere
+  </p>
+
+  <label for="genere">Genere</label>
+  <select type="" name="genere" formControlName="genere">
+    <option>Maschio</option>
+    <option>Femmina</option>
+    <option>Altro</option>
+  </select>
+
+  <label for="img">Img profilo</label>
+  <input type="file" name="img" formControlName="img" />
+
+  <label for="bio">Biografia</label>
+  <textarea name="bio" formControlName="bio"></textarea>
+
+  <label for="username">Username</label>
+  <input type="text" name="username" formControlName="username" />
+  <p
+    *ngIf="!formApp.get('username')?.valid && formApp.get('username')?.touched"
+  >
+    Inserire un username di almeno tre lettere
+  </p>
+
+  <button type="submit" [disabled]="!formApp.valid">Iscriviti</button>
+</form>
